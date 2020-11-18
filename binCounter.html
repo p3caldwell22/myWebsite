@@ -1,0 +1,212 @@
+<html>
+<head>
+<script language="javascript">
+
+
+var number = 0;
+var autoClicked = false
+function addOne ()
+{
+	number = number + 1
+	
+	
+	if( number == 64 )
+	{
+		number = 0
+	}
+	
+	onesPlace ()
+	twoPlace ()
+	threePlace ()
+	fourPlace ()
+	fivePlace ()
+	sixPlace ()
+	
+
+	document.getElementById("count").value = number 
+	
+	
+}
+
+function onesPlace ()
+{
+	if(number % 2 == 0)
+	{
+		
+		document.getElementById("ones").src = "images/ledOFF.png";
+	
+	}
+	else
+	{
+		document.getElementById("ones").src = "images/ledON.png";
+	}
+	
+}
+
+function twoPlace ()
+
+{
+	if(number % 4 >= 2)
+	
+	{
+		
+		document.getElementById("twos").src = "images/ledON.png";
+	}
+		else
+	
+	{
+		
+		document.getElementById("twos").src = "images/ledOFF.png";
+
+	}
+}
+
+function threePlace ()
+
+{
+
+
+	if(number % 8 >= 4) 
+	
+	{
+	
+		document.getElementById("fours").src = "images/ledON.png";
+	
+	}
+
+	else
+	
+	{
+		document.getElementById("fours").src = "images/ledOFF.png";
+	
+	}
+}
+
+
+function fourPlace ()
+
+{
+
+	if(number % 16 >= 8)
+		{
+		
+			document.getElementById("eights").src = "images/ledON.png";
+		
+		}
+
+	else 
+	
+	{
+	
+		document.getElementById("eights").src = "images/ledOFF.png";
+	
+	}
+
+}
+
+function fivePlace ()
+
+{
+
+	if(number % 32 >= 16)
+	{
+	
+		document.getElementById("sixteenths").src = "images/ledON.png";
+	
+	}
+	
+	else
+	
+	{
+	
+		document.getElementById("sixteenths").src = "images/ledOFF.png";
+	
+	}
+
+}
+
+
+function sixPlace ()
+
+{
+
+	if(number % 64 >= 32)
+	{
+	document.getElementById("thirty-twos").src = "images/ledON.png";
+	
+	}
+	
+	else
+	
+	{
+	
+		document.getElementById("thirty-twos").src = "images/ledOFF.png";
+	
+	}
+
+
+}
+
+
+</script>
+<head>
+<body bgcolor = "lightgray">
+<font color="gray">
+</head>
+<body>
+<center>
+<h1> Binary Counter </h1>
+<a href="index.html">Back to Index</a>
+<br/>
+<br/>
+<input type = "button" value = "Add One" onclick = "addOne ()"/>
+<input id = "runStop" type = "button" value = "Run" onClick = "auto()"/>
+<input id = "count" type = "text" size = "20" style = "text-align:center">
+
+
+<div id = "first" style = "position:absolute; top:500; left:1450">
+2^0<br/>
+<img id = "ones" src = "images/ledOFF.png" width="50"/>
+</div>
+
+<div id = "second" style = "position:absolute; top:450; left: 1160">
+2^1<br/>
+<img id = "twos" src = "images/ledOFF.png" width="50"/>
+</div>
+
+<div id = "third" style = "position:absolute; top:400; left:910">
+2^2<br/>
+<img id = "fours" src = "images/ledOFF.png" width="50"/>
+</div>
+
+<div id = "fourth" style = "position:absolute; top:350; left:670">
+2^3<br/>
+<img id = "eights" src = "images/ledOFF.png" width="50"/>
+</div>
+
+<div id = "fifth" style = "position:absolute; top:300; left:420">
+2^4 <br/>
+<img id = "sixteenths" src = "images/ledOFF.png" width="50"/>
+</div>
+
+<div id = "sixth" style = "position:absolute; top:250; left:160">
+2^5 <br/>
+<img id = "thirty-twos" src = "images/ledOFF.png" width="50"/>
+</div>
+
+
+
+
+
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+ 
