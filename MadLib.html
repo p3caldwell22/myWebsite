@@ -1,0 +1,84 @@
+<html>
+<head> 
+<script language="JavaScript">
+
+var partsOfSpeech = ["Please enter girl's name ","Please enter a vehicle","Please enter an animal ","Please enter an adjective ","Please enter a past tense verb ","Please enter an adjective ","Please enter an animal ","Please enter a present tense verb ", "Please enter a present tense verb", "Please enter an object"];
+var answers = new Array(partsOfSpeech.length); 
+var story = ["There once was a girl named ",". She liked to drive around in her "," One day she heard a loud thump and checked what it was. In her trunk, she found a ",".She took the scared animal and placed it on the  ","ground. The animal ","away as fast as it could. This has been a  ","day, she thought to herself. Later that day she heard a similar noise in her trunk. She opened her trunk to find a  ","and it ran around ",". She ", " back. She dialed for animal control on her ", " and they got it out of her trunk. The end."];
+var count = 0;
+
+function prompt ()
+{
+	if(count == 0)
+	{
+		var txtbox = document.getElementById("userEnter");
+		txtbox.style.visibility = "visible";
+		document.getElementById("story").style.visibility = "hidden" ;
+	}
+	document.getElementById("question").innerText = partsOfSpeech[count];
+	clearField();
+}
+function getWords()
+{
+	var wordbox = document.getElementById("response");
+	answers[count] = wordbox.value;
+	
+	count++;
+	
+	if( count < partsOfSpeech.length )
+	{
+		prompt();
+	}
+	else
+	{
+		count = 0;
+		document.getElementById("story").innerHTML = displayStory();
+	}
+}
+
+
+
+function displayStory()
+{
+	var answer = "";
+	var i;
+	for ( i = 0; i< answers.length; i++)
+	{
+		answer += story[i];
+		answer += answers[i];
+	}
+	
+	if( i < story.length)
+	{	
+		answer += story [i];
+	}	
+	document.getElementById("story").style.visibility = "visible";
+	document.getElementById("userEnter").style.visibility = "hidden";
+	
+	return answer;
+}
+
+function clearField()
+{
+	var wordbox = document.getElementById("response");
+	wordbox.value = '';
+}
+
+</script>
+</head>
+<body>
+<center> 
+<h1>My MadLib!</h1><br/><a href="index.html">Back</a>
+<br/><br/>
+<input type="button" value="start" onClick="prompt()"/>
+</center>
+<div id="userEnter" style="position:absolute; overflow:scroll; left:200; top: 100; visibility:hidden;">
+<span id="question"></span>
+<input type = "text" id="response" value="" onfocusout="getWords()"/>
+</div>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+My story goes here. </div>
+
+</body>
+</html>
